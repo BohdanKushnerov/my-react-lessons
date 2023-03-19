@@ -3,7 +3,7 @@ import Counter from './components/Counter';
 // import Dropdown from './components/Dropdown';
 // import ColorPicker from './components/ColorPicker';
 // import TodoList from './components/TodoList';
-import initialTodos from './todos.json';
+// import initialTodos from './todos.json';
 
 // const colorPickerOptions = [
 //   { label: 'red', color: '#F44336' },
@@ -15,24 +15,24 @@ import initialTodos from './todos.json';
 // ];
 
 class App extends Component {
-  state = {
-    todos: initialTodos,
-  };
+  // state = {
+  //   todos: initialTodos,
+  // };
 
-  deleteTodo = todoId => {
-    this.setState(prevState => ({
-      todos: prevState.todos.filter(todo => todo.id !== todoId),
-    }));
-  };
+  // deleteTodo = todoId => {
+  //   this.setState(prevState => ({
+  //     todos: prevState.todos.filter(todo => todo.id !== todoId),
+  //   }));
+  // };
 
   render() {
-    const { todos } = this.state;
+    // const { todos } = this.state;
 
-    const totalTodoCount = todos.length;
-    const completedTodoCount = todos.reduce(
-      (total, todo) => (todo.completed ? total + 1 : total),
-      0
-    );
+    // const totalTodoCount = todos.length;
+    // const completedTodoCount = todos.reduce(
+    //   (total, todo) => (todo.completed ? total + 1 : total),
+    //   0
+    // );
 
     return (
       <>
