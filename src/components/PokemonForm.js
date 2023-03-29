@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { ImSearch } from 'react-icons/im';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const styles = { form: { marginBottom: 20 } };
 
@@ -9,19 +9,20 @@ export default class PokemonForm extends Component {
     pokemonName: '',
   };
 
-  handleNameChange = event => {
-    this.setState({ pokemonName: event.currentTarget.value.toLowerCase() });
+  handleNameChange = e => {
+    this.setState({ pokemonName: e.currentTarget.value.toLowerCase() });
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
+  handleSubmit = e => {
+    e.preventDefault();
 
-    // if (this.state.pokemonName.trim() === '') {
-    //   toast.error('Введите имя покемона.');
-    //   return;
-    // }
+    if (this.state.pokemonName.trim() === '') {
+      toast.error('Введите имя покемона');
+      return;
+    }
 
     this.props.onSubmit(this.state.pokemonName);
+
     this.setState({ pokemonName: '' });
   };
 
