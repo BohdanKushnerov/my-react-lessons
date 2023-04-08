@@ -6,6 +6,7 @@ export const Form = ({ children }) => {
   const handleSubmit = e => {
     e.preventDefault();
     ctx.handleSubmit(ctx.state);
+    ctx.dispatch({ type: 'reset' });
   };
 
   return (

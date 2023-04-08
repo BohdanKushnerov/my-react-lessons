@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <FormProvider
       initialValue={{
-        name: '',
+        login: '',
         password: '',
       }}
       handleSubmit={value => {
