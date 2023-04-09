@@ -22,6 +22,7 @@ export const App = () => {
             <Route path="cats" element={<Cats />} />
           </Route>
           <Route path="dogs/:id" element={<DogDetails />} />
+          <Route path="cats" element={<Cats />} />
         </Route>
       </Routes>
     </div>

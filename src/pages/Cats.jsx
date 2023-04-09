@@ -1,17 +1,6 @@
 // import { Link } from 'react-router-dom';
 
 const Cats = () => {
-  // return (
-  //   <div>
-  //     {['cat-1', 'cat-2', 'cat-3', 'cat-4', 'cat-5'].map(cat => {
-  //       return (
-  //         <Link key={cat} to={`${cat}`}>
-  //           {cat}
-  //         </Link>
-  //       );
-  //     })}
-  //   </div>
-  // );
   return (
     <section>
       <h2>Our cats</h2>
