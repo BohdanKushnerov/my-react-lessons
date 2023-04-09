@@ -1,34 +1,29 @@
 import { Route, Routes } from 'react-router-dom';
-import { About } from '../pages/About';
-import { Home } from '../pages/Home';
-import { ProductDetails } from '../pages/ProductDetails';
-import { Products } from '../pages/Products';
-import { Container, Header, Logo, Link } from './App.styled';
+// import styled from 'styled-components';
+import Home from '../pages/Home';
+import Dogs from '../pages/Dogs';
+import DogDetails from '../pages/DogDetails';
+import Layout from './Layout';
+import Cats from '../pages/Cats';
+
+// const StyledNavLink = styled(NavLink)`
+//   &.active {
+//     color: orangered;
+//   }
+// `;
 
 export const App = () => {
   return (
-    <Container>
-      <Header>
-        <Logo>
-          <span role="img" aria-label="computer icon">
-            💻
-          </span>{' '}
-          GoMerch Store
-        </Logo>
-        <nav>
-          <Link to="/" end>
-            Home
-          </Link>
-          <Link to="/about">About</Link>
-          <Link to="/products">Products</Link>
-        </nav>
-      </Header>
+    <div>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="dogs" element={<Dogs />}>
+            <Route path="cats" element={<Cats />} />
+          </Route>
+          <Route path="dogs/:id" element={<DogDetails />} />
+        </Route>
       </Routes>
-    </Container>
+    </div>
   );
 };
