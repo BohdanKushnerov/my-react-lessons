@@ -1,6 +1,6 @@
 import { styled } from '@mui/material';
 
-import picture from './picture.png';
+// import picture from './picture.png';
 
 export const Card = styled('div')({
   position: 'relative',
