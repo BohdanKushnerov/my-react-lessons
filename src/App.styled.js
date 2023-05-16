@@ -1,5 +1,7 @@
 import { styled } from '@mui/material';
 
+import picture from './picture.png';
+
 export const Card = styled('div')({
   position: 'relative',
   background:
@@ -7,11 +9,32 @@ export const Card = styled('div')({
   width: 380,
   height: 460,
   borderRadius: '20px',
+
+  // padding: '28px 36px',
+
+  // backgroundImage: `url(${picture})`,
+  // backgroundSize: 'cover',
+  // backgroundRepeat: 'no-repeat',
+  // backgroundPosition: 'center',
+});
+
+export const Bcg = styled('div')({
+  position: 'absolute',
+  // background:
+  //   'linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%)',
+  // width: 380,
+  // height: 460,
+  // borderRadius: '20px',
+
+  // backgroundImage: `url(${picture})`,
+  // backgroundSize: 'cover',
+  // backgroundRepeat: 'no-repeat',
+  // backgroundPosition: 'center',
 });
 
 export const Line = styled('div')({
   position: 'absolute',
-  top: '50%',
+  top: 214,
   left: 0,
   // transform: 'translateX(-50%)',
   width: 380,
@@ -23,7 +46,7 @@ export const Line = styled('div')({
 
 export const Avatar = styled('div')({
   position: 'absolute',
-  top: '51%',
+  top: '48%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 80,

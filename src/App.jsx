@@ -1,4 +1,15 @@
-import { Avatar, Button, Card, Followers, Line, Tweets } from './App.styled';
+import {
+  Avatar,
+  Bcg,
+  Button,
+  Card,
+  Followers,
+  Line,
+  Tweets,
+} from './App.styled';
+
+import picture from './picture.png';
+import logo from './logo.png';
 
 export const App = () => {
   // const fetch = () => {
@@ -8,13 +19,35 @@ export const App = () => {
   return (
     <div>
       <Card>
+        <Bcg></Bcg>
+        <img
+          src={picture}
+          alt="Фонове зображення"
+          style={{
+            position: 'absolute',
+            width: 308,
+            height: 168,
+            left: 36,
+            top: 28,
+          }}
+        />
+        <img
+          src={logo}
+          alt="Фонове зображення"
+          style={{
+            position: 'absolute',
+            width: 76,
+            height: 22,
+            left: 20,
+            top: 20,
+          }}
+        />
         <Avatar></Avatar>
         <Line></Line>
         <Tweets>777 Tweets</Tweets>
         <Followers>100000 Followers</Followers>
         <Button>Follow</Button>
       </Card>
-      <div>w</div>
     </div>
   );
 };
