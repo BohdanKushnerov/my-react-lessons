@@ -33,7 +33,7 @@ export const App = () => {
         />
         <img
           src={logo}
-          alt="Фонове зображення"
+          alt="Фонове зображення2"
           style={{
             position: 'absolute',
             width: 76,
