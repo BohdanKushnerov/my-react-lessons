@@ -8,8 +8,8 @@ import {
   Tweets,
 } from './App.styled';
 
-import picture from './picture.png';
-import logo from './logo.png';
+import picture from './img/picture.png';
+import logo from './img/logo.png';
 
 export const App = () => {
   // const fetch = () => {
