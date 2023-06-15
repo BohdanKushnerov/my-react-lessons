@@ -1,6 +1,8 @@
 import { styled } from '@mui/material';
 
 // import picture from './picture.png';
+import picture from './img/picture.png';
+import logo from './img/logo.png';
 
 export const Card = styled('div')({
   position: 'relative',
@@ -10,26 +12,30 @@ export const Card = styled('div')({
   height: 460,
   borderRadius: '20px',
 
-  // padding: '28px 36px',
-
-  // backgroundImage: `url(${picture})`,
-  // backgroundSize: 'cover',
-  // backgroundRepeat: 'no-repeat',
-  // backgroundPosition: 'center',
-});
-
-export const Bcg = styled('div')({
-  position: 'absolute',
-  // background:
-  //   'linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%)',
-  // width: 380,
-  // height: 460,
-  // borderRadius: '20px',
-
-  // backgroundImage: `url(${picture})`,
-  // backgroundSize: 'cover',
-  // backgroundRepeat: 'no-repeat',
-  // backgroundPosition: 'center',
+  '&::before': {
+    content: '""',
+    backgroundImage: `url(${picture})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    position: 'absolute',
+    width: 308,
+    height: 168,
+    left: 36,
+    top: 28,
+  },
+  '&::after': {
+    content: '""',
+    backgroundImage: `url(${logo})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    position: 'absolute',
+    width: 76,
+    height: 22,
+    left: 20,
+    top: 20,
+  },
 });
 
 export const Line = styled('div')({
