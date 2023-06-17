@@ -1,6 +1,5 @@
 import { styled } from '@mui/material';
 
-// import picture from './picture.png';
 import picture from './img/picture.png';
 import logo from './img/logo.png';
 
@@ -42,7 +41,6 @@ export const Line = styled('div')({
   position: 'absolute',
   top: 214,
   left: 0,
-  // transform: 'translateX(-50%)',
   width: 380,
   height: 8,
   backgroundColor: '#EBD8FF',
@@ -59,8 +57,6 @@ export const Avatar = styled('div')({
   height: 80,
   background: '#5736A3',
   border: '8px solid #EBD8FF',
-  // boxShadow:
-  //   '0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06), inset 0px -2.19582px 4.39163px #AE7BE3, inset 0px 4.39163px 3.29372px #FBF8FF',
   borderRadius: '50%',
 
   zIndex: 1,
@@ -95,7 +91,6 @@ export const Tweets = styled('p')({
   fontSize: '20px',
   lineHeight: '24px',
   textTransform: 'uppercase',
-  // textAlign: 'center',
   color: '#EBD8FF',
 });
 
@@ -103,8 +98,6 @@ export const Followers = styled('p')({
   position: 'absolute',
   left: 83,
   top: 324,
-
-  // margin: '0 auto',
 
   fontWeight: 500,
   fontSize: '20px',
