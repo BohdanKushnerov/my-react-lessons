@@ -88,6 +88,8 @@ import { useEffect, useRef, useState } from 'react';
 
 // export default App;
 
+// 2.======================================================
+
 const App = () => {
   const [time, setTime] = useState(0);
   const [isStart, setIsStart] = useState(false);
@@ -159,5 +161,70 @@ const App = () => {
     </div>
   );
 };
+
+// 3.=================================================================
+// const App = () => {
+//   const [time, setTime] = useState(0);
+//   const [isRunning, setIsRunning] = useState(false);
+//   const intervalRef = useRef(null);
+
+//   useEffect(() => {
+//     return () => {
+//       clearInterval(intervalRef.current);
+//     };
+//   }, []);
+
+//   const startTimer = () => {
+//     setIsRunning(true);
+//     intervalRef.current = setInterval(() => {
+//       setTime(prevTime => prevTime + 1);
+//     }, 1000);
+//   };
+
+//   const stopTimer = () => {
+//     setIsRunning(false);
+//     clearInterval(intervalRef.current);
+//     setTime(0);
+//   };
+
+//   const pauseTimer = () => {
+//     setIsRunning(false);
+//     clearInterval(intervalRef.current);
+//   };
+
+//   const resetTimer = () => {
+//     if (!isRunning) {
+//       setTime(0);
+//     }
+//   };
+
+//   const formatTime = time => {
+//     const hours = Math.floor(time / 3600);
+//     const minutes = Math.floor((time % 3600) / 60);
+//     const seconds = time % 60;
+
+//     const formattedHours = String(hours).padStart(2, '0');
+//     const formattedMinutes = String(minutes).padStart(2, '0');
+//     const formattedSeconds = String(seconds).padStart(2, '0');
+
+//     return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+//   };
+
+//   return (
+//     <div>
+//       <p>{formatTime(time)}</p>
+//       <button onClick={startTimer} disabled={isRunning}>
+//         Start
+//       </button>
+//       <button onClick={pauseTimer} disabled={!isRunning}>
+//         Pause
+//       </button>
+//       <button onClick={stopTimer} disabled={!isRunning}>
+//         Stop
+//       </button>
+//       <button onClick={resetTimer}>Reset</button>
+//     </div>
+//   );
+// };
 
 export default App;
