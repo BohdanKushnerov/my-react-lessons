@@ -1,42 +1,60 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { RouteNames } from 'router/routeNames';
-import { Menu, Row } from 'antd';
+import { Menu, Row, Typography } from 'antd';
 import { Header } from 'antd/es/layout/layout';
-import Item from 'antd/es/list/Item';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAuthState } from '../redux/auth/selectors';
+import { login } from '../redux/auth/operations';
+import { AppDispatch } from '../redux/store';
+
+const { Text } = Typography;
 
 const NavBar = () => {
-  const [isAuth, setIsAuth] = useState(false);
   const navigate = useNavigate();
 
-  console.log('isAuth', isAuth);
+  const { isAuth, user, isLoading, isError } = useSelector(getAuthState);
+  const dispatch: AppDispatch = useDispatch();
+
+  console.log('auth', isAuth);
 
   return (
     <Header>
-      <Row justify="end">
-        {isAuth ? (
-          <Menu theme="dark" mode="horizontal">
-            <Item
+      <div>{isLoading && '...Loading'}</div>
+      <div>{isError && '...Error'}</div>
+      <Row
+        style={{
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'end',
+          alignItems: 'center',
+        }}
+      >
+        {isAuth && <Text type="success">{user.username}</Text>}
+        <Menu theme="dark" style={{}}>
+          {isAuth ? (
+            <Menu.Item
+              key={1}
               onClick={() => {
-                setIsAuth(false);
-                navigate(RouteNames.LOGIN);
+                // dispatch(login({ username: 'user', password: '123' })).then(
+                //   () => navigate(RouteNames.LOGIN)
+                // );
               }}
             >
               Log out
-            </Item>
-          </Menu>
-        ) : (
-          <Menu theme="dark" mode="horizontal">
-            <Item
+            </Menu.Item>
+          ) : (
+            <Menu.Item
+              key={2}
               onClick={() => {
-                setIsAuth(true);
-                navigate(RouteNames.CALENDAR);
+                dispatch(login({ username: 'user', password: '123' })).then(
+                  () => navigate(RouteNames.LOGIN)
+                );
               }}
             >
               Login
-            </Item>
-          </Menu>
-        )}
+            </Menu.Item>
+          )}
+        </Menu>
       </Row>
     </Header>
   );
