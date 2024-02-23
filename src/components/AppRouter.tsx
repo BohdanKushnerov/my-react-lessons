@@ -7,32 +7,21 @@ import PrivateRoute from 'router/PrivateRoute';
 import { FC } from 'react';
 import NavBar from './NavBar';
 
-// interface IAppRouterProps {
-//   children: ReactNode;
-// }
-
-// <RestrictedRoute component={Login} redirectTo={RouteNames.CALENDAR} />
-// <PrivateRoute component={Calendar} redirectTo={RouteNames.LOGIN} />
-
 const router = createBrowserRouter([
   {
-    // path: '/',
     element: <NavBar />,
-    // loader: rootLoader,
     children: [
       {
         path: RouteNames.CALENDAR,
         element: (
-          <RestrictedRoute component={Login} redirectTo={RouteNames.CALENDAR} />
+          <PrivateRoute component={Calendar} redirectTo={RouteNames.LOGIN} />
         ),
-        // loader: teamLoader,
       },
       {
         path: RouteNames.LOGIN,
         element: (
-          <PrivateRoute component={Calendar} redirectTo={RouteNames.LOGIN} />
+          <RestrictedRoute component={Login} redirectTo={RouteNames.CALENDAR} />
         ),
-        // loader: teamLoader,
       },
     ],
   },

@@ -3,7 +3,6 @@ import { login } from './operations';
 
 export interface IUser {
   username: string | null;
-  password: string | null;
 }
 
 export interface IAuthState {
@@ -17,7 +16,6 @@ const initialState: IAuthState = {
   isAuth: false,
   user: {
     username: null,
-    password: null,
   },
   isLoading: false,
   isError: false,
@@ -26,7 +24,28 @@ const initialState: IAuthState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    refreshUser: state => {
+      const isAuth = localStorage.getItem('auth');
+      const mockUser = localStorage.getItem('username');
+
+      if (isAuth && mockUser) {
+        state.isAuth = true;
+        state.user = {
+          username: mockUser,
+        };
+      }
+    },
+    logOut: state => {
+      localStorage.removeItem('auth');
+      localStorage.removeItem('username');
+
+      state.isAuth = false;
+      state.user = {
+        username: null,
+      };
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(login.pending, state => {
@@ -37,7 +56,6 @@ export const authSlice = createSlice({
         state.isAuth = true;
         state.user = {
           username: action.payload.username,
-          password: action.payload.password,
         };
         state.isLoading = false;
         state.isError = false;
@@ -48,5 +66,7 @@ export const authSlice = createSlice({
       });
   },
 });
+
+export const { refreshUser, logOut } = authSlice.actions;
 
 export const authReducer = authSlice.reducer;

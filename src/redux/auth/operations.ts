@@ -41,6 +41,9 @@ export const login = createAsyncThunk<
     );
 
     if (mockUser) {
+      localStorage.setItem('auth', 'true');
+      localStorage.setItem('username', mockUser.username);
+
       return mockUser;
     } else {
       return thunkAPI.rejectWithValue({
@@ -56,11 +59,3 @@ export const login = createAsyncThunk<
     }
   }
 });
-
-export const logOut = () => {
-  //
-};
-
-export const refreshUser = () => {
-  //
-};
